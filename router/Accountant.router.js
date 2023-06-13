@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { auth as _auth } from '../Middleware/user.auth.js';
+import { authorAccountant } from '../Middleware/author.js';
+import { payPatientBill, viewOrderForPatient, viewPatientNotPay, viewPatientPay } from '../controllers/Accountant/Accountant.controller.js';
+const AccountantRouter =Router();
+AccountantRouter.get('/viewOrderForPatient',_auth,authorAccountant,viewOrderForPatient);
+AccountantRouter.get('/viewPatientNotPay',_auth,authorAccountant,viewPatientNotPay);
+AccountantRouter.get('/viewPatientPay',_auth,authorAccountant,viewPatientPay);
+AccountantRouter.get('/payPatientBill',_auth,authorAccountant,payPatientBill);
+export default AccountantRouter;  
